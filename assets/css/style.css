@@ -128,3 +128,7 @@ footer li{margin-bottom:8px}
   .shots{grid-template-columns:1fr}
   .swatches{grid-template-columns:repeat(4,1fr)}
 }
+
+/* mini gallery inside cards */
+.mini3{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:12px}
+.mini3 img{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:6px; background:#fff}
