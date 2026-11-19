@@ -1,0 +1,23 @@
+{
+  "updated": "2026-11-19",
+  "groups": {
+    "silicone-watch-bands": { "name": "Silicone Watch Bands", "href": "/products/silicone-watch-bands/" },
+    "nylon-watch-straps": { "name": "Nylon Watch Straps", "href": "/products/nylon-watch-straps/" },
+    "ceramic-watch-straps": { "name": "Ceramic Watch Straps", "href": "/products/ceramic-watch-straps/" },
+    "stainless-steel-watch-straps": { "name": "Stainless Steel Watch Straps", "href": "/products/stainless-steel-watch-straps/" },
+    "zinc-alloy-watch-straps": { "name": "Zinc Alloy Watch Straps", "href": "/products/zinc-alloy-watch-straps/" }
+  },
+  "products": [
+    {
+      "slug": "band-for-royal-pop",
+      "group": "silicone-watch-bands",
+      "name": "Band for Royal Pop",
+      "material": "Silicone",
+      "spec": "20 mm strap · 44 mm case cradle · 142–216 mm wrists",
+      "blurb": "Silicone conversion band with an octagonal case cradle that turns the Royal Pop pocket watch into a wristwatch. Two variants cover the 12 o'clock and 3 o'clock crown references.",
+      "image": "/assets/img/products/band-for-royal-pop/band-for-royal-pop-silicone-black.webp",
+      "alt": "Black silicone Band for Royal Pop with octagonal case cradle",
+      "href": "/products/silicone-watch-bands/band-for-royal-pop/"
+    }
+  ]
+}

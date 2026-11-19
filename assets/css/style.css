@@ -132,3 +132,10 @@ footer li{margin-bottom:8px}
 /* mini gallery inside cards */
 .mini3{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:12px}
 .mini3 img{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:6px; background:#fff}
+
+/* generated product cards + index list */
+.card .prod{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; margin-bottom:14px; background:#fff}
+.plist{list-style:none; padding:0; margin:0 0 30px}
+.plist li{padding:9px 0; border-bottom:1px solid var(--line); font-size:15px}
+.plist li:last-child{border-bottom:0}
+.plist .meta{display:block; font-size:12.5px; color:var(--muted); margin-top:2px}
