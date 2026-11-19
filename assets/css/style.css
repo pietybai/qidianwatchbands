@@ -114,3 +114,17 @@ footer li{margin-bottom:8px}
   section{padding:38px 0}
   .logo{font-size:16px}
 }
+
+/* product gallery */
+.shots{display:grid; gap:12px; grid-template-columns:repeat(2,1fr)}
+.shots figure{margin:0}
+.shots img{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:10px; background:#fff}
+.shots figure:first-child{grid-column:1 / -1}
+.swatches{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:8px}
+.swatches figure{margin:0; text-align:center}
+.swatches img{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff}
+.swatches figcaption{font-size:12px; color:var(--muted); margin-top:5px; text-transform:capitalize}
+@media(max-width:620px){
+  .shots{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(4,1fr)}
+}
