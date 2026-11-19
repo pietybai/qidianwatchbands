@@ -99,12 +99,18 @@ footer li{margin-bottom:8px}
 .todo{background:#fff3cd; border:1px dashed #d9a406; padding:2px 6px; border-radius:4px; font-size:12px}
 
 @media(max-width:900px){
+  .hdr{flex-wrap:wrap; height:auto; padding:10px 0; gap:0 16px}
+  .nav{display:flex; order:3; width:100%; margin-left:0; overflow-x:auto; gap:18px;
+       font-size:14px; padding:8px 0 2px; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{white-space:nowrap}
+  .hdr .btn{margin-left:auto; padding:9px 14px; font-size:13.5px}
   .g3,.steps{grid-template-columns:1fr 1fr}
   .fgrid{grid-template-columns:1fr}
-  .nav{display:none}
 }
 @media(max-width:620px){
   .g3,.g2,.steps{grid-template-columns:1fr}
   .hero{padding:40px 0 32px}
   section{padding:38px 0}
+  .logo{font-size:16px}
 }
