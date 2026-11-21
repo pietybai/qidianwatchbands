@@ -11,3 +11,18 @@
 .shots figure{margin:0}
 .shots img{display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff}
 @media(max-width:700px){.shots{grid-template-columns:repeat(2,1fr)}}
+
+/* --- layout overrides for rebuilt inner pages (2026-11-21) --- */
+.crumb{padding:18px 0 0}
+.section>.eyebrow{margin:26px 0 10px}
+.section>h1{font-size:clamp(30px,3.6vw,46px);line-height:1.12;margin:0 0 16px;max-width:22ch}
+.section>.lead{margin:0 0 22px;max-width:62ch}
+.section .actions{margin-top:20px}
+.specs{overflow-x:auto;margin:20px 0 0}
+.specs table{width:100%;border-collapse:collapse;font-size:15.5px}
+.specs caption{text-align:left;font-size:13px;color:var(--muted);padding-bottom:8px}
+.specs th,.specs td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.specs th{width:28%;font-weight:600}
+.specs tr:last-child th,.specs tr:last-child td{border-bottom:0}
+.notes h2{margin:0 0 10px}
+@media(max-width:700px){.specs th{width:40%;white-space:normal}}
