@@ -28,5 +28,5 @@
 @media(max-width:700px){.specs th{width:40%;white-space:normal}}
 
 /* brand mark (from Qidian logo, copper mono for header) */
-.brand i{background:url(/assets/img/brand/qidian-mark-copper.png) center/contain no-repeat;border:0;width:27px;height:22px}
-@media(max-width:660px){.brand i{width:22px;height:18px}}
+.brand i{background:url(/assets/img/brand/qidian-mark-copper.png) center/contain no-repeat;border:0;width:32px;height:26px}
+@media(max-width:660px){.brand i{width:26px;height:21px}}
