@@ -70,3 +70,73 @@
 @media(max-width:520px){.colourways{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 12px}}
 /* 白色/浅色产品用 multiply 会糊进纸底，改用隔离的白底（陶瓷、不锈钢组页） */
 .shots--solid img{mix-blend-mode:normal;background:#fff}
+
+/* ============================ 排版系统 v2（2026-11-24） ============================
+   问题：全站曾用到 19 个字号（10/11/12/13/14/15/15.5/16/18/19/20/21/22/23/24/28/29/30/32），
+   10–24px 区间挤了 12 档，相邻只差 1px（小字互相打架），而 24→39→56 只有 2 档（大字不分主次）。
+   改法：内容字号只保留 7 档 + 3 个功能档。新组件一律用 token，不要再写裸 font-size。
+     --t-display 每页一次的 h1      --t-h2 分区      --t-h3 小节/行标题
+     --t-lead 导语（每页一个）      --t-body 正文    --t-meta 元信息/注
+     --t-label 全大写小标签
+   功能档：--t-h1 内页 h1 · --t-ui 按钮/表单 · --t-num 数字强调
+   ================================================================================ */
+:root{
+  --t-display:clamp(34px,4.4vw,54px);
+  --t-h1:clamp(32px,3.5vw,46px);
+  --t-h2:clamp(23px,2.2vw,29px);
+  --t-h3:20px;
+  --t-lead:clamp(17px,1.5vw,19px);
+  --t-body:16.5px;
+  --t-meta:13px;
+  --t-label:11.5px;
+  --t-ui:15px;
+  --t-num:clamp(22px,2.2vw,28px);
+  --sp-section:54px;--sp-block:28px;--sp-row:14px;--sp-micro:6px;
+}
+h1{font-size:var(--t-display);line-height:1.05;letter-spacing:-.035em}
+.section>h1{font-size:var(--t-h1);line-height:1.08;letter-spacing:-.03em}
+h2,legend{font-size:var(--t-h2);line-height:1.16;letter-spacing:-.025em}
+h3{font-size:var(--t-h3);line-height:1.28;letter-spacing:-.015em}
+.lead{font-size:var(--t-lead);color:var(--ink);line-height:1.5}
+.section>h2+.lead,.section>h2+p{margin-top:var(--sp-row)}
+.section{padding:var(--sp-section) 0}
+.materials,.steps,.notes details:first-of-type{margin-top:var(--sp-block)}
+.specs{margin:var(--sp-block) 0 0}
+.specs table{font-size:var(--t-body);line-height:1.45}
+.specs th{font-weight:var(--w-bold,650)}
+.specs+h2,.materials+h2{margin-top:44px}
+
+/* 行标题、索引行、步骤标题：原来 22–24px，跟 h2 抢重量，收到 h3 一档 */
+.material-row strong,.steps h3{font-size:var(--t-h3);letter-spacing:-.02em}
+.material-row span{font-size:var(--t-body)}
+.index-panel a{font-size:var(--t-h3)}
+.legend,fieldset legend{font-size:var(--t-h3)}
+.crown-options small,.colours b{font-size:var(--t-meta)}
+.notes summary{font-size:var(--t-body);font-weight:600}
+.measures dd{font-size:var(--t-num)}
+
+/* 元信息统一到 13px */
+.fine,.crumb,.shots figcaption,.colourways figcaption,.product-photo figcaption{font-size:var(--t-meta)}
+.plate-label{font-size:var(--t-label)}
+.eyebrow,.panel-title{font-size:var(--t-label);letter-spacing:.14em}
+.header-cta,.button,.secondary{font-size:var(--t-ui)}
+body{font:16.5px/1.6 'Instrument Sans',Arial,Helvetica,sans-serif}
+p{font-size:var(--t-body);line-height:1.6}
+
+@media(max-width:660px){
+  .section{padding:38px 0}
+  .measures dd{font-size:var(--t-num)}
+  .section>h2+.lead,.section>h2+p{margin-top:12px}
+}
+
+/* --- 版式收紧：内容别只占左边一条（2026-11-24） --- */
+.section>p,.section>.lead{max-width:68ch}
+.section table{width:100%;max-width:1000px}
+.section>h2+*{margin-top:var(--sp-row)}
+.section>h2{margin-bottom:0}
+
+/* h3 间距（2026-11-24）：h3 跟在 h2 后面时贴近，跟表格/段落后面时拉开 */
+.section>h3{margin-top:36px}
+.section>h2+h3{margin-top:10px}
+.specs+h3{margin-top:44px}
+.section>h3+*{margin-top:10px}
