@@ -140,3 +140,20 @@ p{font-size:var(--t-body);line-height:1.6}
 .section>h2+h3{margin-top:10px}
 .specs+h3{margin-top:44px}
 .section>h3+*{margin-top:10px}
+
+/* 首页图像语言统一（2026-11-24）：跟组页一样去白底卡片，产品直接落在纸面上 */
+.hero-photo{background:transparent;border:0;padding:0}
+.hero-photo img{mix-blend-mode:multiply}
+.hero-photo figcaption{margin-top:6px}
+.material-shots img{mix-blend-mode:multiply;background:transparent;border:0;border-radius:0}
+.feature>.photo-slot{background:transparent;border:0;padding:0}
+.feature>.photo-slot img{mix-blend-mode:multiply}
+
+/* 散文节左右分栏（2026-11-24）：标题走左栏，正文走右栏，不再整块贴左边 */
+.section--prose{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:0 clamp(24px,4vw,72px);align-items:start}
+.section--prose>.eyebrow{grid-column:1;grid-row:1;margin-bottom:12px}
+.section--prose>h2{grid-column:1;grid-row:2;max-width:17ch}
+.section--prose>.prose-body{grid-column:2;grid-row:1/span 3}
+.prose-body>p{max-width:70ch}
+.prose-body>p+p{margin-top:16px}
+@media(max-width:760px){.section--prose{grid-template-columns:1fr}.section--prose>.eyebrow,.section--prose>h2,.section--prose>.prose-body{grid-column:1;grid-row:auto}}
