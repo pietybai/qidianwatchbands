@@ -157,3 +157,41 @@ p{font-size:var(--t-body);line-height:1.6}
 .prose-body>p{max-width:70ch}
 .prose-body>p+p{margin-top:16px}
 @media(max-width:760px){.section--prose{grid-template-columns:1fr}.section--prose>.eyebrow,.section--prose>h2,.section--prose>.prose-body{grid-column:1;grid-row:auto}}
+
+/* 数字带（2026-11-24）：把样品量、批量、两个工期摊成一行大字 */
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin:36px 0 0}
+.figures .figure{border-right:1px solid var(--line);padding:18px 20px 2px 0}
+.figures .figure:last-child{border-right:0}
+.figures .figure b{display:block;font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:550;color:var(--ink)}
+.figures .figure span{display:block;font-size:var(--t-meta);color:var(--muted);margin-top:5px}
+@media(max-width:700px){
+  .figures{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:26px}
+  .figures .figure{padding:13px 14px 2px 0}
+  .figures .figure:nth-child(2n){border-right:0}
+}
+
+/* SKU 视图与卡片（2026-11-24） */
+.views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px clamp(12px,1.6vw,22px);margin:22px 0 0}
+.views figure{margin:0}
+.views img{width:100%;height:auto;mix-blend-mode:multiply}
+.views figcaption{font-size:var(--t-meta);color:var(--muted);margin-top:4px}
+@media(max-width:700px){.views{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.sku-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px clamp(16px,2.4vw,30px);margin:16px 0 0}
+.sku-card{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:14px}
+.sku-card img{width:100%;height:auto;mix-blend-mode:multiply}
+.sku-card strong{font-size:var(--t-h3);font-weight:550;letter-spacing:-.02em;margin-top:10px}
+.sku-card span{font-size:var(--t-meta);color:var(--muted);margin-top:4px}
+.sku-card em{font-style:normal;font-size:var(--t-meta);font-weight:600;color:var(--pine);margin-top:12px}
+.sku-card:hover strong{color:var(--pine)}
+@media(max-width:760px){.sku-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.sku-grid{grid-template-columns:1fr}}
+
+/* 构造块：图 + 文，一张一行撑满（2026-11-24） */
+.sku-feature{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;padding:30px 0;border-top:1px solid var(--line)}
+.sku-feature--flip>.sku-feature-media{order:2}
+.sku-feature-media img{width:100%;height:auto;mix-blend-mode:multiply}
+.sku-feature h3{margin-bottom:10px}
+.sku-feature p{max-width:52ch}
+.sku-feature .fine{margin:10px 0 12px}
+@media(max-width:760px){.sku-feature{grid-template-columns:1fr;padding:22px 0}.sku-feature--flip>.sku-feature-media{order:0}}
