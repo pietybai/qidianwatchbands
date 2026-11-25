@@ -53,3 +53,17 @@ for (const form of [sampleForm, briefForm]) {
     else window.location.href = url;
   });
 }
+
+// 组页产品区块：点色卡换主图（通用，任何 [data-gallery] 都能用）
+for (const box of document.querySelectorAll('[data-gallery]')) {
+  const photo = box.querySelector('[data-gallery-photo]');
+  const name = box.querySelector('[data-gallery-name]');
+  if (!photo) continue;
+  box.addEventListener('change', () => {
+    const picked = box.querySelector('input[type=radio]:checked');
+    if (!picked) return;
+    if (picked.dataset.photo) photo.src = picked.dataset.photo;
+    if (picked.dataset.alt) photo.alt = picked.dataset.alt;
+    if (name) name.textContent = picked.value;
+  });
+}
