@@ -233,3 +233,12 @@ p{font-size:var(--t-body);line-height:1.6}
 .pdp-bullets li{font-size:var(--t-body);color:var(--muted);position:relative;padding-left:16px;max-width:52ch}
 .pdp-bullets li:before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;background:var(--pine)}
 @media(max-width:860px){.pdp{grid-template-columns:1fr}.pdp-bullets{grid-template-columns:1fr;gap:6px}}
+
+/* 图片墙：只放白底图和名字，不放描述（2026-11-26） */
+.pic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px clamp(16px,2.4vw,30px);margin:22px 0 0}
+.pic-card{display:block;border-top:1px solid var(--line);padding-top:14px}
+.pic-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;mix-blend-mode:multiply;display:block}
+.pic-card b{display:block;font-size:var(--t-h3);font-weight:550;letter-spacing:-.02em;margin-top:10px}
+.pic-card:hover b{color:var(--pine)}
+@media(max-width:760px){.pic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.pic-grid{grid-template-columns:1fr}}
