@@ -242,3 +242,17 @@ p{font-size:var(--t-body);line-height:1.6}
 .pic-card:hover b{color:var(--pine)}
 @media(max-width:760px){.pic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.pic-grid{grid-template-columns:1fr}}
+
+/* 尼龙暂无实拍：文字块顶位，保持方形画框对齐（2026-11-26） */
+.pic-card--text .pic-blank{aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--soft);border-radius:3px}
+.pic-card--text .pic-blank b{font-size:var(--t-h2);letter-spacing:-.03em;color:var(--ink)}
+.pic-card--text .pic-blank em{font-style:normal;font-size:var(--t-meta);color:var(--muted)}
+
+/* 折叠块：规格表默认收起（2026-11-26） */
+.fold{border-top:1px solid var(--line);padding-top:16px;margin-top:8px}
+.fold>summary{font-size:var(--t-h2);font-weight:550;letter-spacing:-.025em;line-height:1.16;cursor:pointer;list-style:none}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary:after{content:"＋";float:right;color:var(--pine);font-size:.7em;line-height:1.6}
+.fold[open]>summary:after{content:"－"}
+.fold>summary:hover{color:var(--pine)}
+.fold[open]>summary{margin-bottom:12px}
