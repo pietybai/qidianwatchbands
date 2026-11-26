@@ -136,3 +136,73 @@ for (const box of document.querySelectorAll('[data-variant-gallery]')) {
   }));
   render();
 }
+
+// 通用变体控件：维度由页面内 window.__VAR__ 决定（2026-11-26）
+for (const box of document.querySelectorAll('[data-variant-gallery]')) {
+  if (box.hasAttribute('data-wired')) continue;
+  const cfg = window.__VAR__;
+  if (!cfg) continue;
+  const photo = box.querySelector('[data-gallery-photo]');
+  const label = box.querySelector('[data-gallery-name]');
+  const colourBox = box.querySelector('[data-colour-thumbs]');
+  const mainThumbs = box.querySelectorAll('[data-main]');
+  const state = {};
+  cfg.dims.forEach(d => { state[d.key] = d.values[0]; });
+
+  const setMain = (src, alt) => {
+    if (photo) { photo.src = src; if (alt) photo.alt = alt; }
+    mainThumbs.forEach(t => t.setAttribute('aria-pressed', 'false'));
+  };
+
+  const resolve = () => {
+    let node = cfg.sets;
+    for (const d of cfg.dims) {
+      node = node && node[state[d.key]];
+      if (!node) return {};
+    }
+    return node || {};
+  };
+
+  const render = () => {
+    const colours = resolve();
+    const names = Object.keys(colours);
+    if (!names.includes(state.colour)) state.colour = names[0];
+    box.querySelectorAll('[data-dim]').forEach(b => {
+      const key = b.dataset.dim;
+      const saved = state[key];
+      state[key] = b.dataset.value;
+      const exists = Object.keys(resolve()).length > 0;
+      state[key] = saved;
+      b.disabled = !exists;
+      b.setAttribute('aria-pressed', String(state[key] === b.dataset.value));
+    });
+    if (!colourBox) return;
+    colourBox.innerHTML = '';
+    names.forEach(cn => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pdp-thumb';
+      b.setAttribute('aria-pressed', String(cn === state.colour));
+      b.innerHTML = '<img src="/assets/img/products/' + cfg.imgdir + '/' + colours[cn] + '" alt="' + cn +
+        '" width="70" height="70">';
+      b.addEventListener('click', () => { state.colour = cn; render(); });
+      colourBox.appendChild(b);
+    });
+    if (colours[state.colour]) {
+      setMain('/assets/img/products/' + cfg.imgdir + '/' + colours[state.colour], cfg.title + ', ' + state.colour);
+    }
+    if (label) label.textContent = state.colour;
+  };
+
+  box.querySelectorAll('[data-dim]').forEach(b => b.addEventListener('click', () => {
+    if (b.disabled) return;
+    state[b.dataset.dim] = b.dataset.value;
+    render();
+  }));
+  mainThumbs.forEach(t => t.addEventListener('click', () => {
+    mainThumbs.forEach(x => x.setAttribute('aria-pressed', 'false'));
+    t.setAttribute('aria-pressed', 'true');
+    setMain(t.dataset.photo, cfg.title);
+  }));
+  render();
+}
