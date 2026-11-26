@@ -269,3 +269,13 @@ p{font-size:var(--t-body);line-height:1.6}
 .pdp-crowns button:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
 button.pdp-thumb{padding:0;border:0;background:none;line-height:0}
 button.pdp-thumb[aria-pressed="true"] img{border-color:var(--pine);box-shadow:inset 0 0 0 1px var(--pine)}
+
+/* 产品页：亚马逊式左图右信息（2026-11-26） */
+.product-pdp{margin-top:18px}
+.product-pdp h1{font-size:clamp(24px,2.2vw,30px);line-height:1.18;letter-spacing:-.025em;margin:0 0 10px;max-width:20ch}
+.product-pdp .pdp-sub{max-width:46ch}
+.variant-group{margin:0 0 14px}
+.variant-label{display:block;font-size:var(--t-meta);color:var(--muted);margin-bottom:6px}
+.variant-label b{color:var(--ink);font-weight:600}
+.product-pdp .pdp-thumbs{max-width:100%}
+.product-pdp .pdp-info .measures{gap:26px;flex-wrap:wrap}

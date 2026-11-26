@@ -68,22 +68,27 @@ for (const box of document.querySelectorAll('[data-gallery]')) {
   });
 }
 
-// 三维变体（壳色 / 表冠 / 颜色）：2026-11-26
+// 产品页三维变体：壳色 / 表冠 / 颜色，主图 + 左栏缩略图（2026-11-26）
 for (const box of document.querySelectorAll('[data-variant-gallery]')) {
   const SETS = {"black": {"12": {"Orange": "orange-12-black.webp", "White": "white-12-black.webp", "Pink": "pink-12-black.webp", "Red": "red-12-black.webp", "Green": "green-12-black.webp", "Yellow": "yellow-12-black.webp", "Light blue": "light-blue-12-black.webp", "Navy blue": "navy-blue-12-black.webp", "Grey blue": "grey-blue-12-black.webp", "Mint green": "mint-green-12-black.webp", "Black": "black-12-black.webp"}, "3": {"Orange": "orange-3-black.webp", "White": "white-3-black.webp", "Pink": "pink-3-black.webp", "Red": "red-3-black.webp", "Green": "green-3-black.webp", "Yellow": "yellow-3-black.webp", "Light blue": "light-blue-3-black.webp", "Navy blue": "navy-blue-3-black.webp", "Grey blue": "grey-blue-3-black.webp", "Mint green": "mint-green-3-black.webp", "Black": "black-3-black.webp"}}, "rose": {"12": {"Orange": "orange-12-rose.webp", "White": "white-12-rose.webp", "Pink": "pink-12-rose.webp", "Red": "red-12-rose.webp", "Green": "green-12-rose.webp", "Yellow": "yellow-12-rose.webp", "Light blue": "light-blue-12-rose.webp", "Navy blue": "navy-blue-12-rose.webp", "Grey blue": "grey-blue-12-rose.webp", "Mint green": "mint-green-12-rose.webp", "Black": "black-12-rose.webp"}, "3": {"Orange": "orange-3-rose.webp", "White": "white-3-rose.webp", "Pink": "pink-3-rose.webp", "Red": "red-3-rose.webp", "Green": "green-3-rose.webp", "Yellow": "yellow-3-rose.webp", "Light blue": "light-blue-3-rose.webp", "Navy blue": "navy-blue-3-rose.webp", "Grey blue": "grey-blue-3-rose.webp", "Mint green": "mint-green-3-rose.webp", "Black": "black-3-rose.webp"}}, "silver": {"12": {"Orange": "orange-12-silver.webp", "White": "white-12-silver.webp", "Pink": "pink-12-silver.webp", "Red": "red-12-silver.webp", "Green": "green-12-silver.webp", "Yellow": "yellow-12-silver.webp", "Light blue": "light-blue-12-silver.webp", "Navy blue": "navy-blue-12-silver.webp", "Grey blue": "grey-blue-12-silver.webp", "Mint green": "mint-green-12-silver.webp", "Black": "black-12-silver.webp"}, "3": {"White": "white-3-silver.webp"}}};
+  const MAIN = ["main-01.webp", "main-02.webp", "main-03.webp", "main-04.webp", "main-05.webp", "main-06.webp", "main-07.webp"];
   const photo = box.querySelector('[data-gallery-photo]');
   const label = box.querySelector('[data-gallery-name]');
   const caseName = box.querySelector('[data-case-name]');
   const crownName = box.querySelector('[data-crown-name]');
   const note = box.querySelector('[data-variant-note]');
-  const thumbsBox = box.querySelector('[data-thumbs]');
+  const colourBox = box.querySelector('[data-colour-thumbs]');
+  const mainThumbs = box.querySelectorAll('[data-main]');
   const CASE_LABEL = {black: 'Black', rose: 'Rose gold', silver: 'Silver'};
   let state = {case: 'black', crown: '12', colour: null};
 
-  const currentSet = () => (SETS[state.case] && SETS[state.case][state.crown]) || {};
+  const setMain = (src, alt) => {
+    if (photo) { photo.src = src; if (alt) photo.alt = alt; }
+    mainThumbs.forEach(t => t.setAttribute('aria-pressed', 'false'));
+  };
 
   const render = () => {
-    const set = currentSet();
+    const set = (SETS[state.case] && SETS[state.case][state.crown]) || {};
     const names = Object.keys(set);
     if (!names.includes(state.colour)) state.colour = names[0];
     box.querySelectorAll('[data-case]').forEach(b =>
@@ -93,29 +98,27 @@ for (const box of document.querySelectorAll('[data-variant-gallery]')) {
       b.disabled = !ok;
       b.setAttribute('aria-pressed', String(b.dataset.crown === state.crown));
     });
-    thumbsBox.innerHTML = '';
+    colourBox.innerHTML = '';
     names.forEach(en => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'pdp-thumb';
-      b.dataset.colour = en;
       b.setAttribute('aria-pressed', String(en === state.colour));
-      b.innerHTML = '<img src="/assets/img/products/full-wrap/' + set[en] + '" alt="' +
-        en + ' full-wrap case band for Royal Pop" width="70" height="70" loading="lazy">';
+      b.innerHTML = '<img src="/assets/img/products/full-wrap/' + set[en] + '" alt="' + en +
+        ' full-wrap case band for Royal Pop" width="70" height="70">';
       b.addEventListener('click', () => { state.colour = en; render(); });
-      thumbsBox.appendChild(b);
+      colourBox.appendChild(b);
     });
     const file = set[state.colour];
-    if (file && photo) {
-      photo.src = '/assets/img/products/full-wrap/' + file;
-      photo.alt = state.colour + ' full-wrap case band for Royal Pop, ' +
-        CASE_LABEL[state.case].toLowerCase() + ' case, ' + state.crown + " o'clock";
+    if (file) {
+      setMain('/assets/img/products/full-wrap/' + file,
+        state.colour + ' full-wrap case band for Royal Pop, ' + CASE_LABEL[state.case].toLowerCase() +
+        ' case, ' + state.crown + " o'clock");
     }
     if (caseName) caseName.textContent = CASE_LABEL[state.case];
     if (crownName) crownName.textContent = state.crown === '12' ? "12 o'clock" : "3 o'clock";
-    if (label) label.textContent = state.colour + ' · ' + CASE_LABEL[state.case].toLowerCase() +
-      ' case · ' + (state.crown === '12' ? "12 o'clock" : "3 o'clock");
-    if (note) note.hidden = state.case !== 'silver';
+    if (label) label.textContent = state.colour;
+    if (note) note.hidden = !(state.case === 'silver' && state.crown === '3');
   };
 
   box.querySelectorAll('[data-case]').forEach(b => b.addEventListener('click', () => {
@@ -124,9 +127,12 @@ for (const box of document.querySelectorAll('[data-variant-gallery]')) {
     render();
   }));
   box.querySelectorAll('[data-crown]').forEach(b => b.addEventListener('click', () => {
-    if (b.disabled) return;
-    state.crown = b.dataset.crown;
-    render();
+    if (!b.disabled) { state.crown = b.dataset.crown; render(); }
+  }));
+  mainThumbs.forEach(t => t.addEventListener('click', () => {
+    mainThumbs.forEach(x => x.setAttribute('aria-pressed', 'false'));
+    t.setAttribute('aria-pressed', 'true');
+    setMain(t.dataset.photo, 'Full-wrap case band for Royal Pop');
   }));
   render();
 }
