@@ -256,3 +256,8 @@ p{font-size:var(--t-body);line-height:1.6}
 .fold[open]>summary:after{content:"－"}
 .fold>summary:hover{color:var(--pine)}
 .fold[open]>summary{margin-bottom:12px}
+
+/* PDP 细节：多个构造块之间分隔 + 参数值字号收敛（2026-11-26） */
+.pdp+.pdp{border-top:1px solid var(--line);margin-top:36px;padding-top:36px}
+.pdp-info .measures dd{font-size:clamp(16px,1.5vw,22px);letter-spacing:-.02em}
+.pdp-info .measures dd small{font-size:.72em}
