@@ -279,3 +279,8 @@ button.pdp-thumb[aria-pressed="true"] img{border-color:var(--pine);box-shadow:in
 .variant-label b{color:var(--ink);font-weight:600}
 .product-pdp .pdp-thumbs{max-width:100%}
 .product-pdp .pdp-info .measures{gap:26px;flex-wrap:wrap}
+
+/* --- 博客三联图：统一图块高度、图注底部对齐（2026-11-27） --- */
+.shots--uniform figure{display:flex;flex-direction:column}
+.shots--uniform img{height:clamp(190px,20vw,270px);width:100%;object-fit:contain;padding:8px;background:#fff}
+.shots--uniform figcaption{margin-top:auto}
