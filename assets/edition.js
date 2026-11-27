@@ -206,3 +206,45 @@ for (const box of document.querySelectorAll('[data-variant-gallery]')) {
   }));
   render();
 }
+
+// ---- GA4 事件（2026-11-27）：只记行为，不记任何个人信息 ----
+(function () {
+  if (typeof window.gtag !== 'function') return;
+  var page = location.pathname;
+  function send(name, params) {
+    params.page_path = page;
+    if (name === 'generate_lead') params.transport_type = 'beacon';
+    gtag('event', name, params);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('mailto:') === 0) send('generate_lead', { method: 'email' });
+    else if (href.indexOf('https://wa.me/') === 0) send('generate_lead', { method: 'whatsapp' });
+  }, true);
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || !f.id) return;
+    var channel = e.submitter && e.submitter.value;
+    send('generate_lead', { method: channel === 'wa' ? 'whatsapp' : 'email', form: f.id });
+  }, true);
+  document.addEventListener('change', function (e) {
+    var t = e.target;
+    if (!t || t.type !== 'radio') return;
+    var box = t.closest('[data-gallery],[data-variant-gallery]');
+    if (!box) return;
+    send('select_variant', { variant_value: t.value });
+  }, true);
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d || d.tagName !== 'DETAILS' || !d.open) return;
+    var s = d.querySelector('summary');
+    send('specs_open', { section: (s ? s.textContent : '').trim().slice(0, 60) });
+  }, true);
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="http"]') : null;
+    if (!a || a.hostname === location.hostname) return;
+    send('outbound_click', { link_domain: a.hostname, link_url: a.href });
+  }, true);
+})();
