@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400" role="img" aria-label="NATO and leather watch bands compared across five properties">
+  <rect width="900" height="400" fill="#FBF9F5"/>
+
+  <!-- headers -->
+  <text x="40" y="42" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">Property</text>
+  <text x="430" y="42" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1C1C1C">NATO, woven nylon</text>
+  <text x="670" y="42" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1C1C1C">Leather</text>
+  <line x1="40" y1="58" x2="860" y2="58" stroke="#E2DCD2" stroke-width="2"/>
+
+  <!-- rows -->
+  <text x="40" y="102" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">Water</text>
+  <circle cx="436" cy="96" r="7" fill="#B4551F"/><text x="452" y="102" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1C1C1C">dries in minutes</text>
+  <circle cx="676" cy="96" r="7" fill="#E2DCD2"/><text x="692" y="102" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5A554F">absorbs and stains</text>
+
+  <text x="40" y="152" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">Sweat</text>
+  <circle cx="436" cy="146" r="7" fill="#B4551F"/><text x="452" y="152" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1C1C1C">washes clean</text>
+  <circle cx="676" cy="146" r="7" fill="#E2DCD2"/><text x="692" y="152" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5A554F">breaks down</text>
+
+  <text x="40" y="202" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">Thickness</text>
+  <circle cx="436" cy="196" r="7" fill="#B4551F"/><text x="452" y="202" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1C1C1C">1.2–1.5 mm</text>
+  <circle cx="676" cy="196" r="7" fill="#E2DCD2"/><text x="692" y="202" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5A554F">2–3 mm</text>
+
+  <text x="40" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">Formality</text>
+  <circle cx="436" cy="246" r="7" fill="#E2DCD2"/><text x="452" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5A554F">casual, field</text>
+  <circle cx="676" cy="246" r="7" fill="#B4551F"/><text x="692" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1C1C1C">dress</text>
+
+  <text x="40" y="302" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">If a bar fails</text>
+  <circle cx="436" cy="296" r="7" fill="#B4551F"/><text x="452" y="302" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1C1C1C">watch stays on</text>
+  <circle cx="676" cy="296" r="7" fill="#E2DCD2"/><text x="692" y="302" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5A554F">watch falls</text>
+
+  <line x1="40" y1="330" x2="860" y2="330" stroke="#E2DCD2" stroke-width="2"/>
+  <text x="40" y="364" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">Copper dot marks the advantage on that row; grey marks the trade-off.</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-label="Chart of strap length against wrist circumference">
+  <rect width="900" height="430" fill="#FBF9F5"/>
+  <text x="30" y="38" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">Wrist circumference</text>
+  <text x="300" y="38" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">Band length, short piece + long piece</text>
+
+  <!-- row 1: under 165 -->
+  <text x="30" y="96" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1C1C1C">Under 165 mm</text>
+  <rect x="300" y="78" width="150" height="26" fill="#B4551F"/>
+  <text x="462" y="97" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">70 / 110</text>
+
+  <!-- row 2 -->
+  <text x="30" y="156" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1C1C1C">165–190 mm</text>
+  <rect x="300" y="138" width="225" height="26" fill="#B4551F"/>
+  <text x="537" y="157" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">75 / 115</text>
+  <rect x="300" y="172" width="262" height="26" fill="#B4551F" opacity="0.55"/>
+  <text x="574" y="191" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">80 / 120</text>
+
+  <!-- row 3 -->
+  <text x="30" y="248" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1C1C1C">Over 190 mm</text>
+  <rect x="300" y="230" width="300" height="26" fill="#B4551F"/>
+  <text x="612" y="249" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">85 / 125</text>
+
+  <!-- row 4 -->
+  <text x="30" y="308" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1C1C1C">Over 200 mm</text>
+  <rect x="300" y="290" width="337" height="26" fill="#B4551F" opacity="0.55"/>
+  <text x="649" y="309" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1C1C1C">90 / 130</text>
+
+  <!-- baseline -->
+  <line x1="300" y1="344" x2="860" y2="344" stroke="#E2DCD2" stroke-width="2"/>
+  <text x="300" y="372" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">shorter band</text>
+  <text x="860" y="372" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">longer band</text>
+  <text x="30" y="410" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5A554F">Solid bars are stock lengths; faded bars are made to order.</text>
+</svg>
