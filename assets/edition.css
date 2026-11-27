@@ -51,7 +51,7 @@
 
 /* 规格表：.specs 早期是两栏 grid，单表时被挤进 35% 窄栏，正文列过窄（2026-11-24 修） */
 .specs{display:block}
-.specs table{max-width:980px}
+.specs table{max-width:980px}.specs table th[scope=col]{width:auto}
 /* 表格/列表后紧跟的 h2 需要一段呼吸（2026-11-24） */
 .specs+h2,.materials+h2{margin-top:38px}
 
